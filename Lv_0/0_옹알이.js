@@ -7,15 +7,21 @@ function solution(babbling) {
   const words = ['aya', 'ye', 'woo', 'ma'];
 
   const padArr = babbling.map((el) => {
-    let remainStr = '';
     for (let i = 0; i < words.length; i++) {
       const padStr = '0'.repeat(words[i].length);
-      remainStr = el.replace(words[i], padStr);
+      el = el.replace(words[i], padStr);
     }
-    return remainStr;
+    return el;
   });
 
-  const resultArr = padArr.map((el) => el.replace(/0/g, ''));
+  console.log(padArr);
+
+  const resultArr = padArr.map((el) => {
+    return el.replace(/0/g, '');
+  });
+
+  console.log(resultArr);
+  console.log(resultArr.filter((el) => el === ''));
 
   answer = resultArr.filter((el) => el === '').length;
 
