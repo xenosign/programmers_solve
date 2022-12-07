@@ -1,44 +1,34 @@
-// @ts-check
-// https://school.programmers.co.kr/learn/courses/30/lessons/138477
+// @ts-nocheck
+// https://school.programmers.co.kr/learn/courses/30/lessons/138476
 
-function solution(k, score) {
-  const answer = [];
-  const hallOfFameArr = [];
+function solution(k, tangerine) {
+  let answer = 0;
 
-  for (let i = 0; i < score.length; i++) {
-    if (i < k) hallOfFameArr.push(score[i]);
+  const tangerineSet = new Set(tangerine);
+  const uniqueTangerineArr = [...tangerineSet];
+  const answerArr = [];
 
-    const minNum = Math.min(...hallOfFameArr);
-    console.log('b', i, hallOfFameArr);
-
-    if (hallOfFameArr.length === k && score[i] > minNum) {
-      const minIndex = hallOfFameArr.findIndex((el) => el === minNum);
-      hallOfFameArr.splice(minIndex, 1);
-      hallOfFameArr.push(score[i]);
-      console.log('a', i, hallOfFameArr);
-    }
-
-    answer.push(Math.min(...hallOfFameArr));
+  for (let i = 0; i < uniqueTangerineArr.length; i++) {
+    const tempArr = tangerine.filter((el) => el === uniqueTangerineArr[i]);
+    answerArr.push(tempArr.length);
   }
+
+  answerArr.sort((a, b) => b - a);
+
+  console.log(answerArr);
+
+  let sum = 0;
+  for (let i = 0; i < answerArr.length; i++) {
+    sum += answerArr[i];
+    answer++;
+    if (sum > k) {
+      break;
+    }
+  }
+
   return answer;
 }
 
-const testCase = [10, 100, 20, 150, 1, 100, 200];
+const testCase = [1, 1, 1, 1, 2, 2, 2, 3];
 
-console.log('sol', solution(3, testCase));
-
-//   score.map((el) => {
-//     if (el > Math.min(...kArr) || kArr.length === 0) {
-//       kArr.push(el);
-//     }
-
-//     if (kArr.length > k) {
-//       const minNum = Math.min(...kArr);
-//       const minNumIndex = kArr.findIndex((item) => item === minNum);
-//       kArr.splice(minNumIndex, 1);
-//     }
-
-//     console.log(kArr);
-//     answer.push(Math.min(...kArr));
-//     return 0;
-//   });
+console.log('sol', solution(1, testCase));
