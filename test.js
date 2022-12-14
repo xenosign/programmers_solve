@@ -8,7 +8,7 @@
 
 const num = 2;
 let sum = 0;
-for (let i = 1; i <= num; ++i) {
+for (let i = 1; i <= num; i++) {
   sum += i * Math.floor(num / i);
 }
 

@@ -1,5 +1,5 @@
 // @ts-check
-// https://www.acmicpc.net/problem/17427
+// https://www.acmicpc.net/problem/1037
 
 // const input = require('fs').readFileSync('dev/stdin').toString().split('\n');
 // const numArr = input[1].split(' ');
