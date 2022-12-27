@@ -3,7 +3,7 @@
 
 function solution(numbers, k) {
   let answer = 0;
-  const length = numbers.length;
+  const { length } = numbers;
 
   answer = (2 * k - 1) % length;
   if (answer === 0) answer = length - 1;
