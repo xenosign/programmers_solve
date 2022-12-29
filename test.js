@@ -1,5 +1,5 @@
 // @ts-check
-// https://school.programmers.co.kr/learn/courses/30/lessons/133502
+// https://school.programmers.co.kr/learn/courses/30/lessons/120843
 
 // function solution(ingredient) {
 //   let i = 0;
