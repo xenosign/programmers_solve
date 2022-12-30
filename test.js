@@ -3,16 +3,18 @@
 
 function solution(participant, completion) {
   let answer = '';
-  let arr;
 
-  for (let i = 0; i < participant.length; i++) {
-    if (completion.includes(participant[i])) {
-      const index = completion.findIndex((el) => el === participant[i]);
+  while (participant.length >= 1) {
+    if (completion.includes(participant[0])) {
+      const index = completion.findIndex((el) => el === participant[0]);
       completion.splice(index, 1);
-      participant.splice(i, 1);
+      participant.splice(0, 1);
+    } else {
+      [answer] = participant;
+      break;
     }
   }
-  answer = participant;
+  [answer] = participant;
   return answer;
 }
 
