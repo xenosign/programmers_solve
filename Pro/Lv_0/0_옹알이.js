@@ -16,9 +16,7 @@ function solution(babbling) {
 
   console.log(padArr);
 
-  const resultArr = padArr.map((el) => {
-    return el.replace(/0/g, '');
-  });
+  const resultArr = padArr.map((el) => el.replace(/0/g, ''));
 
   console.log(resultArr);
   console.log(resultArr.filter((el) => el === ''));
