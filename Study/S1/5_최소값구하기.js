@@ -9,4 +9,4 @@ function solution(arr) {
   return answer;
 }
 
-console.log(solution([5, 3, 7, 11, 12, 1, 7]));
+console.log(solution([5, 3, 7, 11, 12, 1, 5]));
