@@ -1,10 +1,11 @@
 function solution(arr) {
   let answer = Number.MAX_SAFE_INTEGER;
-  answer = arr[0];
+  answer = Math.min(...arr);
+  // answer = arr[0];
 
-  for (let i = 1; i < arr.length; i++) {
-    if (answer > arr[i]) answer = arr[i];
-  }
+  // for (let i = 1; i < arr.length; i++) {
+  //   if (answer > arr[i]) answer = arr[i];
+  // }
 
   return answer;
 }
