@@ -27,7 +27,7 @@ function solution(arr) {
   answer = Math.max(maxSumRow, maxSumCol, maxSumDia1, maxSumDia2);
 
   return answer;
-// }
+}
 
 // // 수업 풀이
 // function solution(arr) {
