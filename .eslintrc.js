@@ -13,6 +13,9 @@ module.exports = {
     'no-console': 'off',
     'no-plusplus': 'off',
     'prefer-destructuring': 'off',
+    'no-continue': 'off',
+    'operator-linebreak': 'off',
+    curly: 'off',
     intent: 'off',
   },
 };
