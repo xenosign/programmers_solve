@@ -19,20 +19,20 @@
 //   return answer;
 // }
 
-// // 수업 풀이 1
-// function solution(str) {
-//   const answer = 'YES';
+// 수업 풀이 1
+function solution(str) {
+  const answer = 'YES';
 
-//   const strToLower = str.toLowerCase();
+  const strToLower = str.toLowerCase();
 
-//   const len = strToLower.length;
+  const len = strToLower.length;
 
-//   for (let i = 0; i < Math.floor(len / 2); i++) {
-//     if (strToLower[i] !== strToLower[len - i - 1]) return 'NO';
-//   }
+  for (let i = 0; i < Math.floor(len / 2); i++) {
+    if (strToLower[i] !== strToLower[len - i - 1]) return 'NO';
+  }
 
-//   return answer;
-// }
+  return answer;
+}
 
 // 수업 풀이 2
 function solution(str) {
