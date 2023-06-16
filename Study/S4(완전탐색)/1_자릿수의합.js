@@ -40,16 +40,16 @@ function solution(nums) {
     let tmp = nums[i];
 
     // 수업 풀이 1, 숫자로 처리
-    // while (tmp) {
-    //   sum += tmp % 10;
-    //   tmp = Math.floor(tmp / 10);
-    // }
+    while (tmp) {
+      sum += tmp % 10;
+      tmp = Math.floor(tmp / 10);
+    }
 
-    // 수업 풀이 2, 문자로 처리
-    sum = nums[i]
-      .toString()
-      .split('')
-      .reduce((acc, cur) => acc + Number(cur), 0);
+    // // 수업 풀이 2, 문자로 처리
+    // sum = nums[i]
+    //   .toString()
+    //   .split('')
+    //   .reduce((acc, cur) => acc + Number(cur), 0);
 
     if (sum > max) {
       max = sum;
