@@ -15,6 +15,7 @@ function solution(N, arr) {
 
   console.log(totalRankArr);
 
+  // 배열 완성
   for (let i = 0; i < totalRankArr.length; i++) {
     for (let j = 0; j < totalRankArr[i].length; j++) {
       for (let k = 0; k < totalRankArr.length; k++) {
