@@ -4,7 +4,7 @@
 
 //   const commonArr = arr1.filter((el) => arr2.includes(el));
 
-//   answer = commonArr.sort();
+//   answer = commonArr.sort((a, b) => a - b);
 
 //   return answer;
 // }
@@ -13,8 +13,8 @@
 function solution(arr1, arr2) {
   const answer = [];
 
-  const sortedArr1 = arr1.sort();
-  const sortedArr2 = arr2.sort();
+  const sortedArr1 = arr1.sort((a, b) => a - b);
+  const sortedArr2 = arr2.sort((a, b) => a - b);
 
   let p1 = 0;
   let p2 = 0;
