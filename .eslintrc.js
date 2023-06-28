@@ -15,6 +15,7 @@ module.exports = {
     'prefer-destructuring': 'off',
     'no-continue': 'off',
     'operator-linebreak': 'off',
+    'no-restricted-syntax': 'off',
     curly: 'off',
     intent: 'off',
   },
