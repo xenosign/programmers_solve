@@ -16,6 +16,7 @@ module.exports = {
     'no-continue': 'off',
     'operator-linebreak': 'off',
     'no-restricted-syntax': 'off',
+    'nonblock-statement-body-position': 'off',
     curly: 'off',
     intent: 'off',
   },
