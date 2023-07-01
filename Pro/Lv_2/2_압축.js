@@ -1,4 +1,4 @@
-// https://school.programmers.co.kr/learn/courses/30/lessons/138476
+// https://school.programmers.co.kr/learn/courses/30/lessons/17684
 
 function solution(msg) {
   const answer = [];
@@ -45,7 +45,7 @@ function solution(msg) {
       console.log(totalDic);
       console.log('len', len);
       console.log(addWord);
-      totalDic[len].push(addWord);
+      totalDic[len - 1].push(addWord);
     }
 
     str = str.substr(len, str.length);
@@ -55,7 +55,7 @@ function solution(msg) {
 }
 
 // const tc = 'KAKAO';
-// const tc = 'TOBEORNOTTOBEORTOBEORNOT';
-const tc = 'ABABABABABABABAB';
+const tc = 'TOBEORNOTTOBEORTOBEORNOT';
+// const tc = 'ABABABABABABABAB';
 
 console.log(solution(tc));
