@@ -55,7 +55,7 @@ function solution(msg) {
 }
 
 // const tc = 'KAKAO';
-const tc = 'TOBEORNOTTOBEORTOBEORNOT';
-// const tc = 'ABABABABABABABAB';
+// const tc = 'TOBEORNOTTOBEORTOBEORNOT';
+const tc = 'ABABABABABABABAB';
 
 console.log(solution(tc));
