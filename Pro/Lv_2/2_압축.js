@@ -5,50 +5,26 @@ function solution(msg) {
   let str = msg;
 
   const dic = Array.from({ length: 27 }, (v, i) => String.fromCharCode(i + 64));
-  const totalDic = [];
-  totalDic.push(dic);
-
-  let len = 0;
-  let sliceWord = '';
-  let addWord = '';
+  let maxWordLen = 1;
+  let len = 1;
 
   while (str.length > 0) {
-    len = totalDic.length;
+    const sliceWord = str.substr(0, len);
 
-    for (let i = len; i >= 1; i--) {
-      sliceWord = str.substr(0, i);
+    const idx = dic.indexOf(sliceWord);
 
-      if (totalDic[i - 1].indexOf(sliceWord) === -1) {
-        continue;
-      } else {
-        let addIdx = 0;
-        if (i > 1) {
-          for (let j = 0; j < i - 1; j++) {
-            addIdx += totalDic[j].length;
-          }
-        }
-        answer.push(totalDic[i - 1].indexOf(sliceWord) + addIdx);
-        addWord = str.substr(0, i + 1);
-
-        len = i;
-        break;
-      }
-    }
-
-    if (str.length === 1) break;
-
-    if (totalDic.length < addWord.length) {
-      const tempArr = [];
-      tempArr.push(addWord);
-      totalDic.push(tempArr);
+    if (idx === -1) {
+      len -= 1;
+      continue;
     } else {
-      console.log(totalDic);
-      console.log('len', len);
-      console.log(addWord);
-      totalDic[len - 1].push(addWord);
+      answer.push(idx);
+      const addWord = str.substr(0, len + 1);
+      if (str.length !== len) dic.push(addWord);
+      len += 1;
+      str = str.substr(len - 1, str.length);
+      maxWordLen = Math.max(addWord.length, maxWordLen);
+      len = maxWordLen;
     }
-
-    str = str.substr(len, str.length);
   }
 
   return answer;
@@ -56,6 +32,8 @@ function solution(msg) {
 
 // const tc = 'KAKAO';
 // const tc = 'TOBEORNOTTOBEORTOBEORNOT';
-const tc = 'ABABABABABABABAB';
+// const tc = 'ABABABABABABABAB';
+// const tc =
+//   'THATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITISTHATTHATISISTHATTHATISNOTISNOTISTHATITITIS';
 
 console.log(solution(tc));
