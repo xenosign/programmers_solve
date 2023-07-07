@@ -8,8 +8,7 @@ function solution(str1, str2) {
 
   const regex = /[a-zA-Z]/;
 
-  const inter = new Set();
-  let union = [];
+  const inter = [];
 
   for (let i = 0; i < str1.length - 1; i++) {
     if (regex.test(str1[i]) && regex.test(str1[i + 1]))
@@ -23,36 +22,44 @@ function solution(str1, str2) {
 
   const str1Len = str1Arr.length;
   const str2Len = str2Arr.length;
-  let longLen = 0;
-  if (str1Len > str2Len) {
-    longLen = str1Len;
-    union = [...str1Arr];
+
+  let shortArr = [];
+  let longArr = [];
+
+  if (str1Len >= str2Len) {
+    longArr = [...str1Arr];
+    shortArr = [...str2Arr];
   } else {
-    longLen = str2Len;
-    union = [...str2Arr];
+    longArr = [...str2Arr];
+    shortArr = [...str1Arr];
   }
 
-  for (let k = 0; k < longLen; k++) {
-    if (k < str1Len) {
-      for (let l = 0; l < str2Len; l++) {
-        if (str1Arr[k] === str2Arr[l]) {
-          inter.add(str1Arr[k]);
-        } else {
-          union.push(str1Arr[k]);
-        }
+  const tmpLongArr = [...longArr];
+
+  // 교집합 만들기
+  for (let i = 0; i < shortArr.length; i++) {
+    for (let j = 0; j < tmpLongArr.length; j++) {
+      if (shortArr[i] === tmpLongArr[j]) {
+        inter.push(shortArr[i]);
+        tmpLongArr.splice(j, 1);
+        break;
       }
     }
   }
 
-  console.log(inter);
-  console.log(union);
+  // 합집합의 길이는 A + B - A ⍝ B 이다
+  const unionLen = str1Len + str2Len - inter.length;
 
-  answer = Math.floor((inter.size / union.length) * 65536);
+  if (unionLen !== 0) {
+    answer = Math.floor((inter.length / unionLen) * 65536);
+  } else {
+    answer = 65536;
+  }
 
   return answer;
 }
 
-const tc1 = 'aa1+aa2';
-const tc2 = 'AAAA12';
+const tc1 = 'AAbbaa_AAbb';
+const tc2 = 'BBB';
 
 console.log(solution(tc1, tc2));
