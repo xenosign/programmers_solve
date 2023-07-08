@@ -48,6 +48,7 @@ function solution(str1, str2) {
   }
 
   // 합집합의 길이는 A + B - A ⍝ B 이다
+  // 따로 합집합을 구할 필요가 없음
   const unionLen = str1Len + str2Len - inter.length;
 
   if (unionLen !== 0) {
