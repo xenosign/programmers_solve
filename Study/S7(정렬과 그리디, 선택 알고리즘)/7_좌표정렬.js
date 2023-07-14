@@ -30,9 +30,9 @@
 function solution(arr) {
   const answer = arr.slice();
 
+  // 리턴의 참-거짓 여부에 따라 스왑이 일어남
   answer.sort((a, b) => {
     if (a[0] === b[0]) return a[1] - b[1];
-
     return a[0] - b[0];
   });
 
