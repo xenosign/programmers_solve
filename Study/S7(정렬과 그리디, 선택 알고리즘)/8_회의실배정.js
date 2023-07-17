@@ -3,24 +3,24 @@
 // function solution(arr) {
 //   let answer = 0;
 
-//   let max = 0;
+//   let cnt = 0;
 //   let idx = 0;
 
 //   arr.sort((a, b) => a[0] - b[0]);
 
 //   for (let i = 0; i < arr.length - 1; i++) {
-//     answer = 1;
+//     cnt = 1;
 //     idx = i;
 //     for (let j = i + 1; j < arr.length; j++) {
 //       if (arr[idx][1] <= arr[j][0]) {
-//         answer++;
+//         cnt++;
 //         idx = j;
 //       }
 //     }
-//     max = Math.max(answer, max);
+//     answer = Math.max(answer, cnt);
 //   }
 
-//   return max;
+//   return answer;
 // }
 
 // 수업 풀이
