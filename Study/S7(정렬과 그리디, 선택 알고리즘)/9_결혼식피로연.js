@@ -28,7 +28,7 @@
 function solution(arr) {
   let answer = 0;
 
-  let timeLine = [];
+  const timeLine = [];
 
   for (const x of arr) {
     timeLine.push([x[0], 's']);
