@@ -19,5 +19,6 @@ module.exports = {
     'nonblock-statement-body-position': 'off',
     curly: 'off',
     intent: 'off',
+    'no-shadow': 'off',
   },
 };
