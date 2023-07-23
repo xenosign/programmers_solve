@@ -1,7 +1,7 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/42587
 
 function solution(priorities, location) {
-  let answer = 0;
+  const answer = 0;
 
   return answer;
 }
