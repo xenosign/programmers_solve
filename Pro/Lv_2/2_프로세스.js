@@ -1,12 +1,32 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/42587
 
 function solution(priorities, location) {
-  const answer = 0;
+  let answer = 0;
+
+  const prioritiesArr = priorities.slice();
+
+  let maxIdx = -1;
+
+  while (prioritiesArr.length > 0) {
+    answer++;
+    const max = Math.max(...prioritiesArr);
+
+    if (maxIdx === -1) {
+      maxIdx = prioritiesArr.indexOf(max);
+    } else {
+      maxIdx = prioritiesArr.findIndex((el, idx) => el === max && idx > maxIdx);
+      if (maxIdx === -1) maxIdx = prioritiesArr.indexOf(max);
+    }
+
+    if (max === priorities[location] && maxIdx === location) break;
+
+    prioritiesArr[maxIdx] = 0;
+  }
 
   return answer;
 }
 
-const priorities = 2;
-const location = [2, 1, 3, 2];
+const priorities = [1, 1, 9, 1, 1, 1];
+const location = 0;
 
 console.log(solution(priorities, location));
