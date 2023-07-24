@@ -14,6 +14,7 @@ function solution(priorities, location) {
     if (maxIdx === -1) {
       maxIdx = prioritiesArr.indexOf(max);
     } else {
+      // eslint-disable-next-line no-loop-func
       maxIdx = prioritiesArr.findIndex((el, idx) => el === max && idx > maxIdx);
       if (maxIdx === -1) maxIdx = prioritiesArr.indexOf(max);
     }
