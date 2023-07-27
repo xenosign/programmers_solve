@@ -4,39 +4,39 @@ function solution(s) {
   let answer = 0;
 
   const strArr = s.split('');
-  let stack = [];
 
   for (let i = 0; i < strArr.length; i++) {
-    stack = [];
+    const stack = [];
+    let flag = true;
 
     for (let j = 0; j < strArr.length; j++) {
-      if (
-        (stack.length === 0 && strArr[j] === ')') ||
-        strArr[j] === '}' ||
-        strArr[j] === ']'
-      ) {
-        break;
-      }
-
-      if (strArr[j] === '(' || strArr[j] === '{' || strArr[j] === '[')
+      if (strArr[j] === '(' || strArr[j] === '{' || strArr[j] === '[') {
         stack.push(strArr[j]);
-      else if (strArr[j] === ')') {
-        const stackIdx = stack.indexOf('(');
-        if (stackIdx === -1) break;
-        stack.splice(stackIdx, 1);
+      } else if (strArr[j] === ')') {
+        const lastEl = stack[stack.length - 1];
+        if (lastEl === '(') {
+          stack.pop();
+        } else {
+          flag = false;
+        }
       } else if (strArr[j] === '}') {
-        const stackIdx = stack.indexOf('{');
-        if (stackIdx === -1) break;
-        stack.splice(stackIdx, 1);
+        const lastEl = stack[stack.length - 1];
+        if (lastEl === '{') {
+          stack.pop();
+        } else {
+          flag = false;
+        }
       } else if (strArr[j] === ']') {
-        const stackIdx = stack.indexOf('[');
-        if (stackIdx === -1) break;
-        stack.splice(stackIdx, 1);
+        const lastEl = stack[stack.length - 1];
+        if (lastEl === '[') {
+          stack.pop();
+        } else {
+          flag = false;
+        }
       }
-
-      if (j === strArr.length - 1 && stack.length === 0) answer++;
     }
 
+    if (flag && stack.length === 0) answer++;
     strArr.push(strArr.shift());
   }
 
