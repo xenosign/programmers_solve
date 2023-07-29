@@ -34,6 +34,9 @@
 // https://velog.io/@yanghl98/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-Heap%ED%9E%99-%EA%B0%9C%EB%85%90-%EC%A2%85%EB%A5%98-%ED%99%9C%EC%9A%A9-%EC%98%88%EC%8B%9C-%EA%B5%AC%ED%98%84
 
 // 함수로 변경 필요
+// 함수용 heap 선언
+const heap = [null];
+
 class MinHeap {
   constructor() {
     this.heap = [null];
