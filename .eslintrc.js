@@ -20,5 +20,6 @@ module.exports = {
     curly: 'off',
     intent: 'off',
     'no-shadow': 'off',
+    'no-param-reassign': 'off',
   },
 };
