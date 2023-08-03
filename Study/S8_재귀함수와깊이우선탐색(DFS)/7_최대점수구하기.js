@@ -41,6 +41,7 @@ function solution(limit, arr) {
 // }
 
 const tc = [
+  [20, 5],
   [10, 5],
   [25, 12],
   [15, 8],
