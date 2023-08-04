@@ -1,7 +1,7 @@
 function solution(n, m) {
   const answer = [];
   // 순열을 저장할 tmp 배열 선언
-  const tmp = Array.from({ length: m }, () => 0);
+  const tmp = [];
 
   function DFS(L) {
     if (L === m) {
