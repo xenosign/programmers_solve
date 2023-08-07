@@ -7,7 +7,7 @@ function solution(nums, count) {
   function DFS(L) {
     if (L === count) answer.push(tmp.slice());
     else {
-      for (let i = 0; i < nums.length; i++) {
+      for (let i = 0; i < n; i++) {
         if (checkArr[i] === 0) {
           checkArr[i] = 1;
           tmp[L] = nums[i];
