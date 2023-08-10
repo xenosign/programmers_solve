@@ -11,6 +11,8 @@ function solution(n, r) {
   return answer;
 }
 
+// 시간 상으로 약 1/10 정도 효율 차이
+
 // // 한번 계산 된 n, r 의 값은 저장을 해서 다시 트리를 재귀 하지 않도록 하는 방법
 // function solution(n, r) {
 //   let answer = 0;
