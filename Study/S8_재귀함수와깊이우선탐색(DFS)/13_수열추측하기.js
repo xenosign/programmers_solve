@@ -13,6 +13,7 @@ function solution(N, F) {
   // 조합수의 값을 저장하기 위한 배열 선언
   const combiBox = Array.from(Array(N + 1), () => Array(N + 1).fill(0));
   // 순열을 만들 때 사용하기 위한 체크 배열, 이걸 사용하여 해당 숫자가 사용 되었는지 여부를 체크한다
+  // i 값이 1 부터 시작 되기 때문에 N + 1 크기로 선언, 0 인덱스는 사용 X
   const check = Array.from({ length: N + 1 }, () => 0);
   // 임시로 만든 순열을 저장하기 위한 변수
   const tmpPermutaion = Array.from({ length: N }, () => 0);
