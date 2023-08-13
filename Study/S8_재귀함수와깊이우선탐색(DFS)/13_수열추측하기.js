@@ -55,4 +55,4 @@ function solution(N, F) {
   return answer;
 }
 
-console.log(solution(4, 16));
+console.log(solution(4, 18));
