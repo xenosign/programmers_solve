@@ -2,21 +2,17 @@
 
 function solution(numbers, target) {
   let answer = 0;
-  let ari = '';
 
-  function DFS(L, sum, arith) {
-    ari += arith;
+  function DFS(L, sum) {
     if (L > numbers.length) {
-      ari = '';
       return 0;
     }
     if (L === numbers.length && sum === target) {
-      console.log(L, sum, ari);
       answer++;
     }
 
-    DFS(L + 1, (sum += numbers[L]), '+');
-    DFS(L + 1, (sum -= numbers[L]), '-');
+    DFS(L + 1, sum + numbers[L]);
+    DFS(L + 1, sum - numbers[L]);
   }
 
   DFS(0, 0);
