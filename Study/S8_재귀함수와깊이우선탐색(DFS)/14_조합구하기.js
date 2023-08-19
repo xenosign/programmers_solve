@@ -15,7 +15,8 @@ function solution(n, m) {
     if (L === m) {
       answer.push(tmpArr.slice());
     } else {
-      for (let i = s; i <= n; i++) {
+      for (let i = s; i <= n; i++) { 
+        // 레벨이 뽑히는 숫자를 의미 하므로 해당 숫자를 넣어서, 배열을 푸쉰
         tmpArr[L] = i;
         DFS(L + 1, i + 1);
       }
