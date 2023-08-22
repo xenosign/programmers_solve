@@ -33,6 +33,7 @@ function solution(nums, m, mul) {
     if (L === m && sum % mul === 0) {
       answer++;
     } else {
+      // 해당 부분 외울 것
       for (let i = s; i < nums.length; i++) {
         DFS(L + 1, i + 1, sum + nums[i]);
       }
