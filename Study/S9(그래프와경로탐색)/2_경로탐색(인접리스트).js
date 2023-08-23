@@ -1,11 +1,12 @@
 function solution(n, arr) {
   let answer = 0;
-  const graph = Array.from(Array(n + 1), () => Array(n + 1).fill(0));
+  const graph = Array.from(Array(n + 1), () => []);
   const check = Array.from({ length: n + 1 }, () => 0);
   const path = [];
 
+  // 해당 노드에서 갈 수 있는 노드만 배열에 담는다
   for (const [a, b] of arr) {
-    graph[a][b] = 1;
+    graph[a].push(b);
   }
 
   function DFS(v) {
@@ -13,18 +14,19 @@ function solution(n, arr) {
       answer++;
       console.log(path);
     } else {
-      for (let i = 1; i <= n; i++) {
-        if (graph[v][i] === 1 && check[i] === 0) {
-          check[i] = 1;
-          path.push(i);
-          DFS(i);
-          check[i] = 0;
+      for (let i = 0; i < graph[v].length; i++) {
+        // graph[v][i] 가 갈 수 있는 노드 번호가 된다
+        if (check[graph[v][i]] === 0) {
+          check[graph[v][i]] = 1;
+          path.push(graph[v][i]);
+          DFS(graph[v][i]);
           path.pop();
+          check[graph[v][i]] = 0;
         }
       }
     }
   }
-  path.push(1);
+
   check[1] = 1;
   DFS(1);
 
