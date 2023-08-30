@@ -16,7 +16,7 @@ function solution(board) {
         // 시작점 하나에 대한 처리가 될 것이므로, answer + 1
         answer++;
         // 시작점에서 이동이 가능한 모든 1 값을 찾아서 0으로 처리하는 while 문
-        while (queue.length) {
+        while (queue.length > 0) {
           // 큐에서 하나 빼서 해당 좌표 받고 시작
           const [x, y] = queue.shift();
           // 8 방향에 대한 처리
