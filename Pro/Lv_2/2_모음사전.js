@@ -2,20 +2,24 @@
 
 function solution(word) {
   let answer = 0;
-
   const letters = ['A', 'E', 'I', 'O', 'U'];
+  const arr = [];
 
   function DFS(L, made) {
-    console.log(made);
-    answer++;
-    if (made.length > 4 || L >= letters.length) return 0;
-    if (made === word) return 0;
+    if (made.length > 5) return 0;
 
-    DFS(L, made + letters[L]);
-    DFS(L, made + letters[L + 1]);
+    arr.push(made);
+
+    console.log(made);
+
+    letters.forEach((letter) => {
+      DFS(L + 1, made + letter);
+    });
   }
 
   DFS(0, '');
+
+  answer = arr.indexOf(word);
 
   return answer;
 }
