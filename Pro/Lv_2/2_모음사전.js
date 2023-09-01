@@ -8,11 +8,11 @@ function solution(word) {
   function DFS(L, made) {
     console.log(made);
     answer++;
-    if (made.length >= 5) return 0;
+    if (made.length > 4 || L >= letters.length) return 0;
     if (made === word) return 0;
 
     DFS(L, made + letters[L]);
-    DFS(L + 1, made + letters[L + 1]);
+    DFS(L, made + letters[L + 1]);
   }
 
   DFS(0, '');
@@ -20,6 +20,6 @@ function solution(word) {
   return answer;
 }
 
-const word = 'A';
+const word = 'AAAAE';
 
 console.log(solution(word));
