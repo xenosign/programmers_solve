@@ -37,7 +37,37 @@ function solution(maps) {
   return answer;
 }
 
-// DFS 풀이
+// // DFS 풀이
+// function solution(maps) {
+//   let answer = Number.MAX_SAFE_INTEGER;
+
+//   const xSize = maps[0].length;
+//   const ySize = maps.length;
+//   const xGoal = xSize - 1;
+//   const yGoal = ySize - 1;
+
+//   function DFS(x, y, move) {
+//     if (x === xGoal && y === yGoal) {
+//       answer = Math.min(answer, move);
+//       return 0;
+//     }
+
+//     if (x < 0 || x >= xSize || y < 0 || y >= ySize || maps[x][y] === 0)
+//       return 0;
+
+//     maps[x][y] = 0;
+//     DFS(x + 1, y, move + 1);
+//     DFS(x, y + 1, move + 1);
+//     DFS(x - 1, y, move + 1);
+//     DFS(x, y - 1, move + 1);
+//     maps[x][y] = 1;
+//   }
+
+//   DFS(0, 0, 1);
+
+//   if (answer === Number.MAX_SAFE_INTEGER) answer = -1;
+//   return answer;
+// }
 
 const map1 = [
   [1, 0, 1, 1, 1],
