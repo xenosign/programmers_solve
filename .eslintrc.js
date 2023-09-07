@@ -21,5 +21,6 @@ module.exports = {
     intent: 'off',
     'no-shadow': 'off',
     'no-param-reassign': 'off',
+    camelcase: 'off',
   },
 };
