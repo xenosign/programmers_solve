@@ -42,7 +42,7 @@ function solution(dirs) {
   return answer;
 }
 
-// const dirs = 'ULURRDLLU';
-const dirs = 'RRRRRLLLLL';
+const dirs = 'ULURRDLLU';
+// const dirs = 'RRRRRLLLLL';
 
 console.log(solution(dirs));
