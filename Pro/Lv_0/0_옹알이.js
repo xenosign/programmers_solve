@@ -1,6 +1,4 @@
-// @ts-check
 // https://school.programmers.co.kr/learn/courses/30/lessons/120956
-const testArr = ['aya', 'yee', 'u', 'maa', 'wyeoo'];
 
 function solution(babbling) {
   let answer = 0;
@@ -14,16 +12,13 @@ function solution(babbling) {
     return el;
   });
 
-  console.log(padArr);
-
   const resultArr = padArr.map((el) => el.replace(/0/g, ''));
-
-  console.log(resultArr);
-  console.log(resultArr.filter((el) => el === ''));
 
   answer = resultArr.filter((el) => el === '').length;
 
   return answer;
 }
+
+const testArr = ['aya', 'yee', 'u', 'maa', 'wyeoo'];
 
 console.log(solution(testArr));
