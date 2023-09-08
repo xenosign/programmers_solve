@@ -35,7 +35,7 @@ function solution(m, n, board) {
     const [strY, strX] = delPosArr[i].split(',');
     const y = Number(strY);
     const x = Number(strX);
-    boardArr[y].splice(x, 1);
+    boardArr[y][x] = '0';
   }
 
   console.log(boardArr);
