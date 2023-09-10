@@ -38,6 +38,12 @@ function solution(m, n, board) {
     boardArr[y][x] = '0';
   }
 
+  for (let i = boardArr.length - 1; i >= 0; i--) {
+    for (let j = boardArr[0].length - 1; j >= 0; j--) {
+      console.log(boardArr[i][j]);
+    }
+  }
+
   console.log(boardArr);
 
   delPosObj = {};
