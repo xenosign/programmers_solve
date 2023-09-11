@@ -3,50 +3,62 @@
 function solution(m, n, board) {
   let answer = 0;
 
+  const splitArr = [];
   const boardArr = [];
 
   for (let i = 0; i < board.length; i++) {
-    boardArr.push(board[i].split(''));
+    splitArr.push(board[i].split(''));
   }
+
+  for (let y = 0; y < n; y++) {
+    const tmpArr = [];
+    for (let x = m - 1; x >= 0; x--) {
+      tmpArr.push(splitArr[x][y]);
+    }
+    boardArr.push(tmpArr);
+  }
+
+  let flag = true;
 
   let delPosObj = {};
   let delPosArr = [];
 
-  for (let y = 0; y < m - 1; y++) {
+  while (flag) {
     for (let x = 0; x < n - 1; x++) {
-      const character = boardArr[y][x];
-      if (
-        boardArr[y][x + 1] === character &&
-        boardArr[y + 1][x] === character &&
-        boardArr[y + 1][x + 1] === character
-      ) {
-        delPosObj[`${y},${x}`] = 1;
-        delPosObj[`${y + 1},${x}`] = 1;
-        delPosObj[`${y},${x + 1}`] = 1;
-        delPosObj[`${y + 1},${x + 1}`] = 1;
+      for (let y = 0; y < m - 1; y++) {
+        const character = boardArr[x][y];
+        if (
+          character !== undefined &&
+          boardArr[x + 1][y] === character &&
+          boardArr[x][y + 1] === character &&
+          boardArr[x + 1][y + 1] === character
+        ) {
+          delPosObj[`${x},${y}`] = 1;
+          delPosObj[`${x + 1},${y}`] = 1;
+          delPosObj[`${x},${y + 1}`] = 1;
+          delPosObj[`${x + 1},${y + 1}`] = 1;
+        }
       }
     }
-  }
 
-  answer += Object.keys(delPosObj).length;
-  delPosArr = Object.keys(delPosObj);
+    if (Object.keys(delPosObj).length === 0) flag = false;
 
-  for (let i = 0; i < delPosArr.length; i++) {
-    const [strY, strX] = delPosArr[i].split(',');
-    const y = Number(strY);
-    const x = Number(strX);
-    boardArr[y][x] = '0';
-  }
+    answer += Object.keys(delPosObj).length;
+    delPosArr = Object.keys(delPosObj);
 
-  for (let i = boardArr.length - 1; i >= 0; i--) {
-    for (let j = boardArr[0].length - 1; j >= 0; j--) {
-      console.log(boardArr[i][j]);
+    delPosObj = {};
+
+    for (let i = 0; i < delPosArr.length; i++) {
+      const [strX, strY] = delPosArr[i].split(',');
+      const x = Number(strX);
+      const y = Number(strY);
+      boardArr[x][y] = '0';
+    }
+
+    for (let i = 0; i < boardArr.length; i++) {
+      boardArr[i] = boardArr[i].filter((el) => el !== '0');
     }
   }
-
-  console.log(boardArr);
-
-  delPosObj = {};
 
   return answer;
 }
@@ -54,5 +66,8 @@ function solution(m, n, board) {
 const x = 6;
 const y = 6;
 const board = ['TTTANT', 'RRFACC', 'RRRFCC', 'TRRRAA', 'TTMMMF', 'TMMTTJ'];
+// const x = 4;
+// const y = 5;
+// const board = ['CCBDE', 'AAADE', 'AAABF', 'CCBBF'];
 
-console.log(solution(y, x, board));
+console.log(solution(x, y, board));
