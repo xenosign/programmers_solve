@@ -5,18 +5,27 @@ function solution(files) {
 
   const orderArr = [];
 
-  const strRegex = /[^0-9]/g;
-  const numRegex = /[0-9]/g;
-  const numRegexWithoutZero = /[0]/g;
-
   files.forEach((el) => {
     const [front, back] = el.split('.');
-    const name = front.replace(numRegex, '');
-    const head = name.replace(numRegex, '').toUpperCase();
+
+    // 48 - 57
+    let startIdx = -1;
+    for (let i = 0; i < front.length; i++) {
+      if (
+        startIdx === -1 &&
+        front.charCodeAt(i) >= 48 &&
+        front.charCodeAt(i) <= 57
+      ) {
+        startIdx = i;
+      }
+    }
+
+    const head = front.substr(0, startIdx).toUpperCase();
     const number = Number(
-      front.replace(strRegex, '').replace(numRegexWithoutZero, ''),
+      front.substr(startIdx, front.length).replace(/[^0-9]/g, ''),
     );
-    orderArr.push([head, number, back, name]);
+
+    orderArr.push([head, number, back, el]);
   });
 
   orderArr.sort((a, b) => a[0].localeCompare(b[0]));
@@ -27,7 +36,9 @@ function solution(files) {
     return 0;
   });
 
-  console.log(orderArr);
+  orderArr.forEach((el) => {
+    answer.push(el[3]);
+  });
 
   return answer;
 }
