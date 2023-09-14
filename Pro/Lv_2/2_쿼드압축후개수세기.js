@@ -10,9 +10,11 @@ function solution(arr) {
     let canRecursive = false;
     const standardNum = arr[row][col];
 
-    for (let y = row; y < row + size; y++) {
-      for (let x = col; x < col + size; x++) {
-        if (standardNum !== arr[y][x]) canRecursive = true;
+    if (size >= 2) {
+      for (let y = row; y < row + size; y++) {
+        for (let x = col; x < col + size; x++) {
+          if (standardNum !== arr[y][x]) canRecursive = true;
+        }
       }
     }
 
