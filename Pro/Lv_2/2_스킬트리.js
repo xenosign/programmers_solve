@@ -26,7 +26,7 @@ function solution(skill, skill_trees) {
 }
 
 const skill = 'CBD';
-// const skill_trees = ['CED'];
-const skill_trees = ['BACDE', 'CBADF', 'AECB', 'BDA'];
+const skill_trees = ['CED'];
+// const skill_trees = ['BACDE', 'CBADF', 'AECB', 'BDA'];
 
 console.log(solution(skill, skill_trees));
