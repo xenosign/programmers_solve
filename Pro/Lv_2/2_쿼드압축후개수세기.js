@@ -24,10 +24,8 @@ function solution(arr) {
       recursiveFunc(row, col + halfSize, halfSize);
       recursiveFunc(row + halfSize, col, halfSize);
       recursiveFunc(row + halfSize, col + halfSize, halfSize);
-    } else {
-      if (standardNum === 0) zeroCount++;
-      else oneCount++;
-    }
+    } else if (standardNum === 0) zeroCount++;
+    else oneCount++;
   }
 
   recursiveFunc(0, 0, arr.length);
