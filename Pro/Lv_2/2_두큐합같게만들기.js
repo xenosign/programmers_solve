@@ -40,10 +40,10 @@ function solution(queue1, queue2) {
 // const queue1 = [3, 2, 7, 2];
 // const queue2 = [4, 6, 5, 1];
 
-// const queue1 = [1, 2, 1, 2];
-// const queue2 = [1, 10, 1, 2];
+const queue1 = [1, 2, 1, 2];
+const queue2 = [1, 10, 1, 2];
 
-const queue1 = [1, 1];
-const queue2 = [1, 5];
+// const queue1 = [1, 1];
+// const queue2 = [1, 5];
 
 console.log(solution(queue1, queue2));
