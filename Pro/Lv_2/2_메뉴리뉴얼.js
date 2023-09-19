@@ -17,8 +17,6 @@ function solution(orders, course) {
         for (let b = a + 1; b < orders[j].length; b++) {
           tmp += orders[j][b];
 
-          // ABD 가 나와야 하는데 안나옴, 이것 해결 필요
-
           for (let c = 1; c < course[i] - 1 && b + c < orders[j].length; c++) {
             tmp += orders[j][b + c];
           }
@@ -45,6 +43,8 @@ function solution(orders, course) {
     const sortArrByNumOfCourse = orderCourseArr
       .splice(0, countArr[i][1])
       .sort((a, b) => b[1] - a[1]);
+
+    console.log(sortArrByNumOfCourse);
 
     if (sortArrByNumOfCourse[0] !== undefined) {
       const mostCnt = sortArrByNumOfCourse[0][1];
