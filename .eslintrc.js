@@ -17,6 +17,7 @@ module.exports = {
     'operator-linebreak': 'off',
     'no-restricted-syntax': 'off',
     'nonblock-statement-body-position': 'off',
+    'no-lonely-if': 'off',
     curly: 'off',
     intent: 'off',
     'no-shadow': 'off',
