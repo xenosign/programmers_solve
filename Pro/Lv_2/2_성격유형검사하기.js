@@ -2,6 +2,23 @@
 
 function solution(survey, choices) {
   let answer = '';
+  const resultObj = {};
+
+  for (let i = 0; i < survey.length; i++) {
+    if (choices[i] > 4) {
+      if (resultObj[survey[i][1]] === undefined) {
+        resultObj[survey[i][1]] = choices[i] - 4;
+      } else {
+        resultObj[survey[i][1]] += choices[i] - 4;
+      }
+    } else {
+      if (resultObj[survey[i][0]] === undefined) {
+        resultObj[survey[i][1]] = choices[i] - 4;
+      } else {
+        resultObj[survey[i][1]] += choices[i] - 4;
+      }
+    }
+  }
 
   return answer;
 }
