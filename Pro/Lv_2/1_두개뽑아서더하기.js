@@ -13,6 +13,7 @@ function solution(numbers) {
     }
   }
 
+  // 결과를 왜 정렬 해줘야 하는가?
   answer.sort((a, b) => a - b);
 
   return answer;
